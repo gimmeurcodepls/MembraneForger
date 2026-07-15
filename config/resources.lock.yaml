@@ -1,0 +1,26 @@
+open_resources:
+  mstool:
+    lock_file: resources/vendor/mstool.lock.yaml
+    installed_path: resources/vendor/mstool
+    redistributed: false
+  martini:
+    origin_file: resources/forcefields/martini/ORIGIN.yaml
+    installed_path: resources/forcefields/martini
+    redistributed: true
+external_not_redistributed:
+  charmm36:
+    env: MEMBRANEFORGER_CHARMM36_ROOT
+  cgenff:
+    env: MEMBRANEFORGER_CGENFF_ROOT
+  ligand_params:
+    env: MEMBRANEFORGER_LIGAND_PARAMS_ROOT
+  dssp:
+    env: DSSP_BIN
+  pyrosetta:
+    env: PYROSETTA_PYTHON
+  rosetta:
+    env: ROSETTA_BIN
+  rosetta_database:
+    env: ROSETTA_DATABASE
+  molfile_to_params:
+    env: MOLFILE_TO_PARAMS

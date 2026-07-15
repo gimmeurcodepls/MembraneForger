@@ -1,0 +1,31 @@
+project: Martini force fields
+upstream_repository: https://github.com/marrink-lab/martini-forcefields.git
+exact_commit: 784591ebdc91d762ed4df986c4650546c938f776
+license_spdx: Apache-2.0
+source_archive_url: https://github.com/marrink-lab/martini-forcefields/archive/784591ebdc91d762ed4df986c4650546c938f776.tar.gz
+source_archive_sha256: b8dd9ac706500c3f72b8a2351e5df34f42a7833338f85eac293a86f28ac284bc
+retained_files:
+  - path: resources/forcefields/martini/martini_v3.0.0.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0.itp
+    sha256: 0ecbf0ff334b2ec21dc5e3151aca42167b977bc2aed41eb2a44bd8c997754894
+  - path: resources/forcefields/martini/martini_v3.0.0_ions_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_ions_v1.itp
+    sha256: 699aba132755b0ef13a0d7b41e6230a27777781bdc8075507413b89499c2be4f
+  - path: resources/forcefields/martini/martini_v3.0.0_nucleobases_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_nucleobases_v1.itp
+    sha256: 774526a4fa1ba6cbe80bda97c0f0516e31c0f21212466281bfae7348cea6f393
+  - path: resources/forcefields/martini/martini_v3.0.0_phospholipids_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_phospholipids_v1.itp
+    sha256: 21fb2eb6d8a1d48854d179dc71981c1210f608486efb3e6644347391ba9cf392
+  - path: resources/forcefields/martini/martini_v3.0.0_small_molecules_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_small_molecules_v1.itp
+    sha256: 61eb12c3e70fa31af0503d91c3c4ec03c16e88414c884e694bd4092b0afe3cbc
+  - path: resources/forcefields/martini/martini_v3.0.0_solvents_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_solvents_v1.itp
+    sha256: e6a78414b317c38a1a816eded4aee6082a5da1ed229a126359f0cc92314dcb4e
+  - path: resources/forcefields/martini/martini_v3.0.0_sugars_v1.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_sugars_v1.itp
+    sha256: 342c8a7be7209a9d6f50c91a0adba3e16150863cd33411ca6bb18b4c2675bbbf
+  - path: resources/forcefields/martini/martini_v3.0.0_sugars_v2.itp
+    upstream_path: martini_forcefields/regular/v3.0.0/gmx_files/martini_v3.0.0_sugars_v2.itp
+    sha256: 4d29956a77d936cfdad10e8bbdf201cebdaa24a2f5f50688988a1c7bb9ebfc50

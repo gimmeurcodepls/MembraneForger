@@ -1,0 +1,7 @@
+This is gromacs input script package for GPCR in membrane simulations. 
+
+1. minim.mdp, this is the minimization script to minimize step*.pdb from CHARMM-GUI
+2. nvt.mdp. Run NVT equilibration following minimization. This step will run for 1 ns. 
+3. npt.mdp. First NPT equilibration after NVT, with 10 k constraints, run for 5 ns. 
+4. npt5k.mdp, npt4k.mdp ... until npt1k.mdp. NPT equilibrations following up first NPT to reduce the constraints. Each runs for 5 ns.
+5. npt0k.mdp. Last un-restrainted NPT simulation. This step will run for 50 ns. 

@@ -1,0 +1,43 @@
+python:
+  env: PYTHON_BIN
+  required: true
+gromacs:
+  env: GMX_BIN
+  required: false
+martinize2:
+  env: MARTINIZE2_BIN
+  required: false
+vermouth:
+  python_module: vermouth
+  required: false
+insane:
+  env: INSANE_BIN
+  required: false
+mstool:
+  python_module_path: resources/vendor/mstool
+  required: false
+openmm:
+  python_module: openmm
+  required: false
+dssp:
+  env: DSSP_BIN
+  required: false
+pyrosetta:
+  env: PYROSETTA_PYTHON
+  python_module: pyrosetta
+  required: false
+rosetta:
+  env: ROSETTA_BIN
+  required: false
+rosetta_database:
+  env: ROSETTA_DATABASE
+  required: false
+molfile_to_params:
+  env: MOLFILE_TO_PARAMS
+  required: false
+apptainer:
+  env: APPTAINER_BIN
+  required: false
+apptainer_image:
+  env: APPTAINER_IMAGE
+  required: false

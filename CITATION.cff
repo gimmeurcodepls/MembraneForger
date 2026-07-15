@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use MembraneForger, cite this repository and the upstream tools and force fields listed in THIRD_PARTY_NOTICES.md."
+title: "MembraneForger"
+version: "0.1.0"
+date-released: "2026-07-15"
+authors:
+  - family-names: "MembraneForger contributors"
+license: "MIT"
+references:
+  - type: software
+    title: "Martini force fields"
+    url: "https://github.com/marrink-lab/martini-forcefields"
+  - type: software
+    title: "mstool"
+    url: "https://github.com/ksy141/mstool"

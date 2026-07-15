@@ -1,0 +1,54 @@
+name: Licensed Production Check
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_extended_smoke:
+        description: "Run an authorized larger internal smoke test"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  licensed-production-check:
+    runs-on: self-hosted
+    env:
+      PYROSETTA_PYTHON: ${{ secrets.PYROSETTA_PYTHON }}
+      ROSETTA_BIN: ${{ secrets.ROSETTA_BIN }}
+      ROSETTA_DATABASE: ${{ secrets.ROSETTA_DATABASE }}
+      MOLFILE_TO_PARAMS: ${{ secrets.MOLFILE_TO_PARAMS }}
+      DSSP_BIN: ${{ secrets.DSSP_BIN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refuse missing licensed paths
+        run: |
+          test -n "$PYROSETTA_PYTHON"
+          test -n "$ROSETTA_BIN"
+          test -n "$ROSETTA_DATABASE"
+          test -n "$MOLFILE_TO_PARAMS"
+          test -e "$PYROSETTA_PYTHON"
+          test -e "$ROSETTA_BIN"
+          test -d "$ROSETTA_DATABASE"
+          test -e "$MOLFILE_TO_PARAMS"
+
+      - name: Lightweight licensed dependency validation
+        run: |
+          python -m pip install pytest==8.2.2 numpy==1.26.4 pandas==2.2.2
+          python scripts/dependency_resolver.py
+          "$PYROSETTA_PYTHON" - <<'PY'
+          import pyrosetta
+          print("PyRosetta import PASS")
+          PY
+
+      - name: Optional authorized internal smoke
+        if: ${{ github.event.inputs.run_extended_smoke == 'true' }}
+        run: |
+          echo "Extended internal smoke must be implemented by the licensed self-hosted environment."

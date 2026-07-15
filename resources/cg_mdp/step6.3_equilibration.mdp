@@ -1,0 +1,60 @@
+; MADE BY ROLAND                                                                                                                                                                                                                                 
+; STANDARD MD INPUT OPTIONS FOR MARTINI 3 ALPHA
+;
+define                   = -DPOSRES_FC=500 -DBILAYER_LIPIDHEAD_FC=100
+integrator               = md
+tinit                    = 0.0
+dt                       = 0.005
+nsteps                   = 200000
+nstcomm                  = 100
+comm-grps		 = System
+
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 25000
+nstenergy                = 25000
+nstxout-compressed       = 25000
+compressed-x-precision   = 100
+compressed-x-grps        =
+energygrps               = System
+
+; NEIGHBOURLIST and MARTINI
+; See Kim et al. 2023 (10.26434/chemrxiv-2023-zbj6j) and de Jong et al. 2016 (10.1016/j.cpc.2015.09.014)
+cutoff-scheme            = Verlet
+nstlist                  = 20
+ns_type                  = grid
+pbc                      = xyz
+verlet-buffer-tolerance  = -1
+nsttcouple               = 20
+nstpcouple               = 20
+rlist                    = 1.35
+
+coulombtype              = reaction-field
+rcoulomb                 = 1.1
+epsilon_r                = 15
+epsilon_rf               = 0
+vdw_type                 = cutoff
+vdw-modifier             = Potential-shift-verlet
+rvdw                     = 1.1
+
+tcoupl                   = berendsen
+tc-grps                  = Protein_LIG SOL_ION Membrane
+tau_t                    = 1.0 1.0 1.0
+ref_t                    = 310 310 310
+Pcoupl                   = berendsen
+Pcoupltype               = semiisotropic
+tau_p                    = 3.0
+compressibility          = 3e-4  3e-4
+ref_p                    = 1.0  1.0
+refcoord-scaling         = all
+
+gen_vel                  = no
+gen_temp                 = 310
+gen_seed                 = 472229
+
+constraints              = none
+constraint_algorithm     = Lincs
+lincs_order              = 12
+lincs_warnangle          = 90
+lincs_iter               = 2

@@ -1,0 +1,39 @@
+run:
+  id: minimal
+  overwrite: false
+  update_latest: false
+  require_inputs_for_check: false
+
+stage1:
+  input_pdb: examples/minimal/inputs/minimal.pdb
+  orientation_enabled: false
+  orientation_chain: null
+  membrane_protein_mode: whole
+  martinize_forcefield: martini3001
+
+stage2:
+  mode: smoke
+  production: false
+
+stage3:
+  input_aa_protlig: examples/minimal/inputs/minimal.pdb
+  input_opm_reference: null
+  placement:
+    mode: aa_reference_to_backmapped
+    use_opm: false
+    fixed_selection: "protein"
+    moving_selection: "protein"
+    fixed_chain: null
+    moving_chain: null
+  plugins:
+    glycolipid_template_finalize:
+      enabled: false
+
+stage4:
+  ligand_params: []
+  dssp_required: false
+  charmm36_required: false
+  cgenff_required: false
+  ligand_params_required: false
+  parameter_generation_enabled: false
+  pyrosetta_plugins_enabled: false

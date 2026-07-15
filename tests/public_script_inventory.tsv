@@ -1,0 +1,17 @@
+path	classification
+run_pipeline.sh	public_cli
+setup.sh	public_cli
+stages/stage1_setup_cg/run.sh	public_cli
+stages/stage2_run_cg/run.sh	public_cli
+stages/stage3_backmap/run.py	public_cli
+stages/stage4_prepare_aa/run.sh	public_cli
+scripts/check_python_environment.py	public_cli
+scripts/bootstrap_mstool.py	public_cli
+scripts/bootstrap_resources.py	public_cli
+scripts/dependency_resolver.py	public_cli
+scripts/insane_M3_lipids_new.py	public_cli
+scripts/restore_archive.py	public_cli
+scripts/membraneforger_workflow.py	internal_helper
+scripts/membraneforger_paths.py	library_module
+scripts/external_dependencies.py	library_module
+scripts/test_membrane_workflow.py	internal_helper

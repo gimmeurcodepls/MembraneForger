@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lightweight:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install open runtime dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y dssp
+          command -v mkdssp
+
+      - name: Install pinned Python test dependencies
+        run: python -m pip install pytest==8.2.2 numpy==1.26.4 pandas==2.2.2 pyyaml==6.0.2
+
+      - name: Shell syntax
+        run: |
+          bash -n setup.sh
+          bash -n run_pipeline.sh
+          find stages -type f -name '*.sh' -exec bash -n {} \;
+
+      - name: Python syntax
+        run: python -m compileall -q scripts stages tests
+
+      - name: Public tests
+        env:
+          MEMBRANEFORGER_DISABLE_NETWORK_TESTS: "1"
+        run: python -m pytest -q
+
+      - name: Public setup dependency check
+        run: bash setup.sh --check
+
+      - name: Resource bootstrap checks
+        run: |
+          python scripts/bootstrap_resources.py --component martini --verify
+          python scripts/bootstrap_resources.py --component mstool --dry-run --offline
+
+      - name: Public dry-run smoke
+        env:
+          ROSETTA_BIN: ""
+          ROSETTA_DATABASE: ""
+          PYROSETTA_PYTHON: ""
+          MOLFILE_TO_PARAMS: ""
+          MEMBRANEFORGER_CHARMM36_ROOT: ""
+          MEMBRANEFORGER_CGENFF_ROOT: ""
+          MEMBRANEFORGER_LIGAND_PARAMS_ROOT: ""
+        run: |
+          tmpdir="$(mktemp -d)"
+          cache="$tmpdir/cache with spaces"
+          MEMBRANEFORGER_CACHE_DIR="$cache" "$PWD/run_pipeline.sh" --pdb "$PWD/examples/minimal/inputs/minimal.pdb" --config "$PWD/config/workflow.example.yaml" --output-dir "$tmpdir/output path" --dry-run

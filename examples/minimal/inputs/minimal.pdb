@@ -1,0 +1,8 @@
+HEADER    MINIMAL MEMBRANEFORGER CLI FIXTURE
+ATOM      1  N   ALA A   1       0.000   0.000   0.000  1.00  0.00           N
+ATOM      2  CA  ALA A   1       1.458   0.000   0.000  1.00  0.00           C
+ATOM      3  C   ALA A   1       2.028   1.410   0.000  1.00  0.00           C
+ATOM      4  O   ALA A   1       1.390   2.430   0.000  1.00  0.00           O
+ATOM      5  CB  ALA A   1       1.980  -0.780  -1.205  1.00  0.00           C
+TER
+END

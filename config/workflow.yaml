@@ -1,0 +1,58 @@
+run:
+  id: default
+  overwrite: false
+  update_latest: false
+  require_inputs_for_check: false
+
+stage1:
+  input_pdb: inputs/aa_protein.pdb
+  orientation_enabled: false
+  orientation_chain: null
+  membrane_protein_mode: whole
+  martinize_forcefield: martini3001
+  insane_input: work/{run_id}/stage1/martinize_input.pdb
+  resources:
+    cg_mdp: resources/cg_mdp
+    forcefields: resources/forcefields
+
+stage2:
+  mode: smoke
+  production: false
+  resources:
+    cg_mdp: resources/cg_mdp
+
+stage3:
+  input_aa_protlig: inputs/aa_protlig.pdb
+  input_opm_reference: inputs/opm_reference.pdb
+  resources:
+    mappings: resources/mappings
+    templates: resources/templates
+    forcefields: resources/forcefields
+    vendor_mstool: resources/vendor/mstool
+  placement:
+    mode: aa_reference_to_backmapped
+    use_opm: false
+    fixed_selection: "protein"
+    moving_selection: "protein"
+    fixed_chain: null
+    moving_chain: null
+  plugins:
+    glycolipid_template_finalize:
+      enabled: false
+      source_residue: GM3
+      target_molecule_type: GLPA
+      target_itp: resources/ligand_params/GLPA/GLPA.itp
+
+stage4:
+  resources:
+    aa_mdp: resources/aa_mdp
+    ligand_params_root_env: MEMBRANEFORGER_LIGAND_PARAMS_ROOT
+    charmm36_root_env: MEMBRANEFORGER_CHARMM36_ROOT
+    cgenff_root_env: MEMBRANEFORGER_CGENFF_ROOT
+  ligand_params: []
+  dssp_required: false
+  charmm36_required: false
+  cgenff_required: false
+  ligand_params_required: false
+  parameter_generation_enabled: false
+  pyrosetta_plugins_enabled: false

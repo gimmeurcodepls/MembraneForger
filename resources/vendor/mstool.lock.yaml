@@ -1,0 +1,11 @@
+project: mstool
+upstream_repository: https://github.com/ksy141/mstool.git
+exact_commit: 2d37f9d3e89279ddd9125cc74da1f5e01153586c
+release_if_any: v0.3.6
+license_spdx: GPL-3.0-only
+source_archive_url: https://github.com/ksy141/mstool/archive/2d37f9d3e89279ddd9125cc74da1f5e01153586c.tar.gz
+source_archive_sha256: c9e43e5ae607bdd31b1c86f6e5b0698095010af57210e7b3f6bf4144fb8bebba
+expected_package_path: resources/vendor/mstool
+required_citations:
+  - "mstool upstream documentation and paper cited by upstream project"
+local_patch_list: []

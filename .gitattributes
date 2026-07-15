@@ -1,0 +1,36 @@
+* text=auto eol=lf
+
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.tsv text eol=lf
+*.json text eol=lf
+
+*.pdb text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.gro text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.top text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.itp text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.mdp text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.str text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.rtf text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.prm text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.crd text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.mol2 text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+*.params text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+
+resources/** text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+examples/legacy_kor/** text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+examples/test_membrane/** text eol=lf whitespace=-blank-at-eol,-blank-at-eof
+
+*.dms binary !eol
+*.tpr binary !eol
+*.trr binary !eol
+*.xtc binary !eol
+*.edr binary !eol
+*.cpt binary !eol
+*.png binary !eol
+*.jpg binary !eol
+*.jpeg binary !eol
+*.pdf binary !eol
