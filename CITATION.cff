@@ -4,12 +4,16 @@ title: "MembraneForger"
 version: "0.1.0"
 date-released: "2026-07-15"
 authors:
-  - family-names: "MembraneForger contributors"
+  - given-names: "Roland"
+    family-names: "Del Mundo"
 license: "MIT"
 references:
   - type: software
     title: "Martini force fields"
     url: "https://github.com/marrink-lab/martini-forcefields"
+  - type: software
+    title: "insane.py"
+    url: "https://github.com/Tsjerk/Insane"
   - type: software
     title: "mstool"
     url: "https://github.com/ksy141/mstool"
